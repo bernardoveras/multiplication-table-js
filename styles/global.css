@@ -2,6 +2,7 @@
 
 :root{
   --primary-color: #8257E5;
+  --primary-dark-color: #9c7de4;
   --secondary-color: #04D361;
   --background-color: #121214;
   --light-gray-color: #29292E;
@@ -11,24 +12,43 @@
   margin: 0;
   padding: 0;
   font-family: Roboto, sans-serif;
+  color: white;
+  font-weight: 400;
 }
 
 body {
   background-color: var(--background-color);
 }
 
-.container {
-  background-color: var(--primary-color);
+.tab-header {
+  background-color: var(--light-gray-color);
   display: flex;
   justify-content: center;
   height: 5rem;
   align-items: center;
-
   padding: 0px 24px 0px 24px;
-  color: white;
 }
 
-.container, h1 {
+.tab-header, h1 {
   font-weight: 600;
   font-size: 1.5rem;
+}
+
+.table {
+  margin: 24px;
+  padding: 24px;
+  border-radius: 10px;
+  background-color: var(--primary-color)
+}
+
+.divider {
+  background-color: var(--primary-dark-color);
+  height: 2px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.container, h1 { 
+  font-weight: 400;
 }

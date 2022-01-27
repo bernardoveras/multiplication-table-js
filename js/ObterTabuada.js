@@ -1,21 +1,42 @@
 class GetMultiplicationTable {
-  constructor() {}
+  constructor() { }
 
   call(number) {
-    const result = Array.from({ length: 10 }, (_, i) => ((i + 1) * number));
+    const result = Array.from({ length: 11 }, (_, index) => (index * number));
 
-    const table = result.map((value, index) => `${number} x ${index + 1} = ${value}`);
+    const table = result.map((value, index) => `${index} x ${number} = ${value}`);
 
     return table;
   }
 }
 
 function init() {
+  const multiplicationTable = createMultiplicationTable(5);
+
+  const tableComponent = document.querySelector('.table');
+
+  createTable(tableComponent, multiplicationTable);
+}
+
+function createMultiplicationTable(number) {
   const usecase = new GetMultiplicationTable();
 
-  const completeMultiplicationTable = Array.from({length: 10}, (_, i) => usecase.call(i + 1));
+  const completeMultiplicationTable = usecase.call(number);
 
-  console.log(completeMultiplicationTable);
+  return completeMultiplicationTable;
+}
+
+function createTable(tableComponent, multiplicationTable) {
+  if (!tableComponent) return;
+
+  multiplicationTable.forEach((value) => tableComponent.appendChild(createItem(value)));
+}
+
+function createItem(value) {
+  const item = document.createElement('h1');
+  item.innerText = value;
+
+  return item;
 }
 
 init();

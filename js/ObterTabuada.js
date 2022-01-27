@@ -11,11 +11,12 @@ class GetMultiplicationTable {
 }
 
 function init() {
-  const multiplicationTable = createMultiplicationTable(5);
-
   const tableComponent = document.querySelector('.table');
 
-  createTable(tableComponent, multiplicationTable);
+  for (let i = 0; i < 10; i ++){
+    const multiplicationTable = createMultiplicationTable(i + 1);
+    createTable(tableComponent, multiplicationTable);
+  }
 }
 
 function createMultiplicationTable(number) {
@@ -29,7 +30,13 @@ function createMultiplicationTable(number) {
 function createTable(tableComponent, multiplicationTable) {
   if (!tableComponent) return;
 
-  multiplicationTable.forEach((value) => tableComponent.appendChild(createItem(value)));
+  const div = document.createElement('div');
+  div.className = 'table-value';
+
+
+  multiplicationTable.forEach((value) => div.appendChild(createItem(value)));
+
+  tableComponent.appendChild(div);
 }
 
 function createItem(value) {
